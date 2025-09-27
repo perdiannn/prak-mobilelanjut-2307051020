@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/login_screen.dart';
 import 'screens/signup_screen.dart';
+import 'screens/dashboard_screen.dart';
 
 void main() => runApp(const JustduitApp());
 
@@ -37,11 +38,12 @@ class JustduitApp extends StatelessWidget {
             borderSide: const BorderSide(color: Color(0xFF1E88FF)),
           ),
         ),
-      ),
+      ),      
       initialRoute: LoginScreen.route,
       routes: {
         LoginScreen.route: (context) => const LoginScreen(),
         SignupScreen.route: (context) => const SignupScreen(),
+        DashboardScreen.route: (context) => const DashboardScreen(),
       },
     );
   }

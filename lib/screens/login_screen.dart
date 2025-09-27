@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/screens/dashboard_screen.dart';
 import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -147,11 +148,30 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 6),
 
-                      primaryButton('Sign In Now', () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Sign In Tapped')),
-                        );
-                      }),
+                     primaryButton(
+                      'Sign In Now',
+                      () {
+                        // Cek apakah email atau password kosong
+                        if (_email.text.isEmpty || 
+                            _pass.text.isEmpty) {
+                            // Jika ya, tampilkan notifikasi error
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Email dan Password tidak boleh kosong!'),
+                                backgroundColor: Colors.red,
+                              ),
+                            );
+                          } else {
+                            // Jika tidak, lanjutkan ke Dashboard
+                            Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              DashboardScreen.route,
+                              (route) => false,
+                            );
+                          }
+                        },
+                      ),
+                        
                       const SizedBox(height: 14),
 
                       Center(
