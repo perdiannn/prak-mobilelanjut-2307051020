@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/screens/dashboard_screen.dart';
-import 'signup_screen.dart';
+// import 'package:myapp/screens/dashboard_screen.dart';
+import 'package:myapp/screens/signup_screen.dart';
+import 'package:myapp/screens/splash_screen.dart'; // tambahkan import splash screen ini
 
 class LoginScreen extends StatefulWidget {
   static const route = '/signin';
@@ -162,10 +163,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             );
                           } else {
-                            // Jika tidak, lanjutkan ke Dashboard
+                            // PERUBAHAN 2: Arahkan ke Splash Screen, bukan lagi ke Dashboard
                             Navigator.pushNamedAndRemoveUntil(
                               context,
-                              DashboardScreen.route,
+                              SplashScreen.route, // Tujuan diubah ke sini
                               (route) => false,
                             );
                           }
